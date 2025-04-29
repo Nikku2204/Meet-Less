@@ -102,7 +102,7 @@ export function FileUploader({ onFileUpload, isLoading, error }: FileUploaderPro
             <div className="flex flex-col items-center justify-center gap-2">
               <FileText className="h-10 w-10 animate-pulse text-muted-foreground" />
               <p className="text-sm font-medium">Uploading {fileName}...</p>
-              <Progress value={0} className="w-full" />
+              <Progress value={45} className="w-full" />
             </div>
           )}
 

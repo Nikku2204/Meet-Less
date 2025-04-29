@@ -1,3 +1,88 @@
+// Add the parseUploadedCSV function at the top of the file
+export async function parseUploadedCSV(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+
+    reader.onload = (event) => {
+      try {
+        const text = event.target?.result as string
+        if (!text) {
+          reject(new Error("Failed to read file"))
+          return
+        }
+
+        // Parse CSV
+        const rows = text.split(/\r?\n/)
+        if (rows.length < 2) {
+          reject(new Error("File appears to be empty or invalid"))
+          return
+        }
+
+        const headers = rows[0].split(",").map((header) => header.trim())
+
+        // Validate required columns
+        const requiredColumns = [
+          "Meeting_Title",
+          "Duration_Minutes",
+          "Participants",
+          "Actual_Speakers",
+          "Decision_Made",
+        ]
+        const missingColumns = requiredColumns.filter((col) => !headers.includes(col))
+
+        if (missingColumns.length > 0) {
+          reject(new Error(`Missing required columns: ${missingColumns.join(", ")}`))
+          return
+        }
+
+        const data = []
+        for (let i = 1; i < rows.length; i++) {
+          if (!rows[i].trim()) continue
+
+          const values = rows[i].split(",")
+          if (values.length !== headers.length) {
+            console.warn(`Skipping row ${i + 1}: column count mismatch`)
+            continue
+          }
+
+          const row = {}
+          headers.forEach((header, index) => {
+            row[header] = values[index]?.trim() || ""
+          })
+
+          // Add default values for optional columns if missing
+          if (!row.hasOwnProperty("Could_Be_Async")) {
+            row["Could_Be_Async"] = row["Decision_Made"] === "No" ? "Yes" : "No"
+          }
+          if (!row.hasOwnProperty("Agenda_Provided")) {
+            row["Agenda_Provided"] = "No"
+          }
+          if (!row.hasOwnProperty("Follow_Up_Sent")) {
+            row["Follow_Up_Sent"] = "No"
+          }
+
+          data.push(row)
+        }
+
+        if (data.length === 0) {
+          reject(new Error("No valid data rows found in the file"))
+          return
+        }
+
+        resolve(data)
+      } catch (error) {
+        reject(new Error("Failed to parse CSV file: " + (error.message || "Unknown error")))
+      }
+    }
+
+    reader.onerror = () => {
+      reject(new Error("Failed to read the file"))
+    }
+
+    reader.readAsText(file)
+  })
+}
+
 // Function to load CSV data from the provided URL
 export async function loadCSVData() {
   try {

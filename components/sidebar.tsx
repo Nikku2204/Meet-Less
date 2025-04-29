@@ -3,15 +3,24 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Slider } from "@/components/ui/slider"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { FileSpreadsheet } from "lucide-react"
+import { FileSpreadsheet, Upload } from "lucide-react"
 
-export function Sidebar({ filters, onFilterChange, meetingTypes = [] }) {
+export function Sidebar({ filters, onFilterChange, meetingTypes = [], isUploadedData }) {
   return (
     <div className="hidden md:flex w-64 flex-col border-r bg-gray-50/40 p-4">
-      <div className="flex items-center gap-2 mb-6">
+      <div className="flex items-center gap-2 mb-2">
         <FileSpreadsheet className="h-6 w-6 text-blue-600" />
         <h2 className="text-lg font-semibold">Meeting Optimizer</h2>
       </div>
+
+      <div className="mb-4">
+        <Badge variant={isUploadedData ? "default" : "secondary"} className="flex items-center gap-1 w-fit">
+          <Upload className="h-3 w-3" />
+          {isUploadedData ? "Using uploaded data" : "Using demo data"}
+        </Badge>
+      </div>
+
+      <Separator className="mb-4" />
 
       <div className="space-y-6">
         <div>

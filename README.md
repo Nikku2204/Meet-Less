@@ -1,30 +1,47 @@
-# Meeting Optimizer App
+# Meet-Less: AI-Powered Meeting Optimization
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+![Deployed on Vercel](https://img.shields.io/badge/deployed%20on-vercel-black)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Version](https://img.shields.io/badge/version-0.1.0-green)
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/nikku22-uwedus-projects/v0-meeting-optimizer-app)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/tuUruSGTtzt)
+## [🔗 Live Demo](https://v0-meeting-optimizer-app.vercel.app/)
 
-## Overview
+Meet-Less is an intelligent meeting analysis tool that helps organizations reclaim productive time by identifying which meetings should be kept, optimized, or replaced with asynchronous communication.
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+## 🚀 Key Features
 
-## Deployment
+- **Smart Meeting Classification** - Automatically identifies high-value vs. low-value meetings using our proprietary algorithm
+- **Participation Analysis** - Detects meetings with too many silent participants and suggests attendance optimization
+- **Frequency Optimization** - Identifies recurring meetings that could be held less frequently
+- **Time Savings Calculator** - Quantifies potential hours saved through meeting optimization
+- **Interactive Dashboard** - Visualizes meeting effectiveness with intuitive charts and graphs
 
-Your project is live at:
+## 💡 Why Meet-Less?
 
-**[https://vercel.com/nikku22-uwedus-projects/v0-meeting-optimizer-app](https://vercel.com/nikku22-uwedus-projects/v0-meeting-optimizer-app)**
+Organizations waste countless hours in unproductive meetings. Our analysis reveals:
 
-## Build your app
+- Only 28% of meetings result in actual decisions
+- 65% of meetings could be handled asynchronously
+- Meetings with <30% speaker participation waste most attendees' time
+- Short meetings with high engagement are valuable even without formal decisions
 
-Continue building your app on:
+Meet-Less transforms these insights into actionable recommendations, helping your team focus on what matters.
 
-**[https://v0.dev/chat/projects/tuUruSGTtzt](https://v0.dev/chat/projects/tuUruSGTtzt)**
+## 📊 How It Works
 
-## How It Works
+1. **Data Analysis** - Upload meeting data or use our sample dataset
+2. **Pattern Recognition** - Our algorithm identifies meeting effectiveness patterns
+3. **Scoring System** - Meetings receive value scores based on type, participation, and outcomes
+4. **Recommendations** - Get specific suggestions for each meeting type:
+   - Convert large standups to async updates
+   - Replace low-engagement leadership meetings with executive summaries
+   - Reduce participant lists for meetings with silent observers
+   - Adjust meeting frequency based on decision patterns
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## 💻 Technology Stack
+
+- **Frontend**: React.js, Streamlit, Plotly for data visualization
+- **Backend**: Python, Pandas for data analysis
+- **Deployment**: Vercel
+
+## 🛠️ Getting Started

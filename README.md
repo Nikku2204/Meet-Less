@@ -1,8 +1,7 @@
 # Meet-Less: AI-Powered Meeting Optimization
 
 ![Deployed on Vercel](https://img.shields.io/badge/deployed%20on-vercel-black)
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Version](https://img.shields.io/badge/version-0.1.0-green)
+
 
 ## [🔗 Live Demo](https://v0-meeting-optimizer-app.vercel.app/)
 
